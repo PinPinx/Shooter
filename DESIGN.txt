@@ -1,3 +1,7 @@
 Name: Danny Oh
 Date: 1/9/15
-
+Genre: Top Down Scrolling Shooter
+Game Name: Shut the Butt
+Goal: Given a limited amount of time, shoot the butt moving laterally at the top of the screen using a hand that moves laterally at the bottom of the screen. The butt shuts once it has been shot enough times. Also, dodge the poop so you don't die
+Basic mechanics: Mouse left and right to move the hand left and right and spacebar to shoot.
+How hard level differs: In easy mode, the poop shoots straight down. In hard mode, The poop shoots randomly either at you or straight down, and the shots you shoot are affected by the direction you are moving in.
