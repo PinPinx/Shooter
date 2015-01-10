@@ -3,9 +3,9 @@ game
 
 First project for CompSci 308 Spring 2015
 
-Name: 
+Name: Danny Oh
 
-Date started:
+Date started: 1/9/15
 
 Date finished:
 
