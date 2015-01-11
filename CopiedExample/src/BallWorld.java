@@ -25,7 +25,7 @@ class BallWorld {
     private static final int PLAYER_SPEED = 10;
     
     private int shotSpeed=10;
-    private int poopSpeed=20;
+    private int poopSpeed=10;
     private Scene myScene;
     private Group myRoot;
     private ImageView myPlayer;
@@ -91,11 +91,14 @@ class BallWorld {
         }
         if (myGenerator.nextInt(150)<=2)
         	myEnemyVelocity = new Point2D(myEnemyVelocity.getX() * -1, myEnemyVelocity.getY());
-        //See if a new poop comes out
-        if (myGenerator.nextInt(150)<=2){
+        //See if a new poop comes out and if so, create it
+        if (myGenerator.nextInt(300)<=2){
         	ImageView newPoop = new ImageView(new Image(getClass().getResourceAsStream("images/Poop.gif")));
+        	/*newPoop.setFitHeight(30);
+        	newPoop.setFitWidth(30);*/
         	newPoop.setTranslateX(myEnemy.getTranslateX());
         	newPoop.setTranslateY(myEnemy.getTranslateY());
+        	myRoot.getChildren().add(newPoop);
         	Poops.add(newPoop);
         }
         
@@ -113,19 +116,16 @@ class BallWorld {
         //Handle poop movement
         for(ImageView poop: Poops){
         	poop.setTranslateY(poop.getTranslateY() + poopSpeed);
-        	
+        	checkCollide(poop, myPlayer);
         }
         //Handle shot movement
         for(ImageView shot: Shots){
         	shot.setTranslateY(shot.getTranslateY() - shotSpeed);
-        	if (shot.getTranslateY()<-30){
-        		Shots.remove(shot);
-        	}
+        	checkCollide(shot, myEnemy);
         }
         /*if (myEnemy.getTranslateY() >= myScene.getHeight() || myEnemy.getTranslateY() <= 0) {
             myEnemyVelocity = new Point2D(myEnemyVelocity.getX(), myEnemyVelocity.getY() * -1);
         }*/
-        checkCollide(myPlayer, myEnemy);
     }
 
     /**
@@ -174,10 +174,11 @@ class BallWorld {
     /**
      * What to do each time shapes collide
      */
-    private void checkCollide (Node player, Node enemy) {
+    private void checkCollide (Node shot, Node character) {
         // check for collision
-        if (player.getBoundsInParent().intersects(enemy.getBoundsInParent())) {
+        if (shot.getBoundsInParent().intersects(character.getBoundsInParent())) {
             System.out.println("Collide!");
+            
         }
     }
 }
