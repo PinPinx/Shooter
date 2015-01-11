@@ -25,7 +25,7 @@ class BallWorld {
     private static final int PLAYER_SPEED = 10;
     
     private int shotSpeed=10;
-    private int poopSpeed=10;
+    private int poopSpeed=1;
     private Scene myScene;
     private Group myRoot;
     private ImageView myPlayer;
@@ -116,7 +116,8 @@ class BallWorld {
         //Handle poop movement
         for(ImageView poop: Poops){
         	poop.setTranslateY(poop.getTranslateY() + poopSpeed);
-        	checkCollide(poop, myPlayer);
+        	if(checkCollide(poop, myPlayer))
+        		Poops.remove(poop);
         }
         //Handle shot movement
         for(ImageView shot: Shots){
@@ -174,11 +175,12 @@ class BallWorld {
     /**
      * What to do each time shapes collide
      */
-    private void checkCollide (Node shot, Node character) {
+    private boolean checkCollide (Node shot, Node character) {
         // check for collision
         if (shot.getBoundsInParent().intersects(character.getBoundsInParent())) {
-            System.out.println("Collide!");
-            
+        	System.out.println("Collide");
+            return true;
         }
+        return false;
     }
 }
