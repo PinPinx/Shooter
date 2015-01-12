@@ -13,27 +13,28 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
     private static final int NUM_FRAMES_PER_SECOND = 60;
-    private BallWorld myGame;
+    private Menu myMenu;
 
     /**
      * Set things up at the beginning.
      */
     @Override
     public void start (Stage s) {
-        s.setTitle("BallWorld!");
+        s.setTitle("Game Menu");
         // create your own game here
-        myGame = new BallWorld();
+        myMenu = new Menu();
         // attach game to the stage and display it
-        Scene scene = myGame.init(s, 600, 600);
+        Scene scene = myMenu.init(s, 600, 600);
         s.setScene(scene);
         s.show();
 
         // setup the game's loop
-        KeyFrame frame = myGame.start(NUM_FRAMES_PER_SECOND);
+       /* KeyFrame frame = myMenu.start(NUM_FRAMES_PER_SECOND);
         Timeline animation = new Timeline();
         animation.setCycleCount(Animation.INDEFINITE);
         animation.getKeyFrames().add(frame);
-        animation.play();
+        animation.playFromStart();*/
+        
     }
 
     /**
