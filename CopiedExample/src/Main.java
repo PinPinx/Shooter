@@ -24,9 +24,7 @@ public class Main extends Application {
         // create your own game here
         myMenu = new Menu();
         // attach game to the stage and display it
-        Scene scene = myMenu.init(s, 600, 600);
-        s.setScene(scene);
-        s.show();
+        myMenu.showScreen(s, 600, 600);
 
         // setup the game's loop
        /* KeyFrame frame = myMenu.start(NUM_FRAMES_PER_SECOND);

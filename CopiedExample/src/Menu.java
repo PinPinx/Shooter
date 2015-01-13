@@ -12,11 +12,10 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class Menu {
+public class Menu extends Screen{
 
 	private Group myRoot;
-	private BallWorld myGame;
-	public Scene myScene;
+	//private BallWorld myGame;
 
 	private static final int NUM_FRAMES_PER_SECOND = 60;
 
@@ -30,26 +29,20 @@ public class Menu {
 
 		play.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e){
-				myGame = new BallWorld();
+				BallWorld myGame = new BallWorld();
 				// attach game to the stage and display it
-				Scene scene = myGame.init(s, width, height);
-				s.setScene(scene);
-				s.show();
+				myGame.showScreen(s, 600, 600);
 				// setup the game's loop
 				KeyFrame frame = myGame.start(NUM_FRAMES_PER_SECOND);
-				Timeline animation = new Timeline();
-				animation.setCycleCount(Animation.INDEFINITE);
-				animation.getKeyFrames().add(frame);
-				animation.play();
+				startAnim(frame);
 			}
 		}); 
 		myRoot.getChildren().add(play);
-		myScene = new Scene(myRoot, width, height, Color.WHITE);
-		return myScene;
+		return new Scene(myRoot, width, height, Color.WHITE);
 	}
 
 	public void addIntroText(){
-		Text opener = new Text(100,300,"Shut the Butt");
+		Text opener = new Text(35,300,"Pain in the Butt");
 		opener.setFont(new Font(75));
 		opener.setFill(Color.BROWN);
 		Text instructions = new Text(120,330,"YOU GOTTA SHUT THE BUTT \n"

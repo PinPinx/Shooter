@@ -29,13 +29,13 @@ import javafx.util.Duration;
  *
  * @author Robert C. Duvall
  */
-class BallWorld {
+class BallWorld extends Screen{
 	private static final int PLAYER_SPEED = 10;
 	private static final int START_TIME = 60;
 	private int shotSpeed=10;
 	private int poopSpeed=10;
 	private Scene myScene;
-	private Group myRoot;
+	//private Group myRoot;
 	private ImageView myPlayer;
 	private ImageView myEnemy;
 	private ProgressBar enemyHP;
@@ -62,7 +62,8 @@ class BallWorld {
 		Shots= new ArrayList<ImageView>();
 		Poops= new ArrayList<ImageView>();
 		// make the player and enemy and set their properties
-		makeChar(width, height);
+		myPlayer = makeChar(width/2, height-80, "images/hand.png");
+		myEnemy = makeChar(width/2, -50, "images/But.gif");
 		//make HP bars
 		makeHP(width);
 		//set enemy velocity
@@ -97,6 +98,7 @@ class BallWorld {
 		updateSprites();
 		updateTimer();
 	}
+	
 	private void updateTimer(){
 		frameCounter++;
 		if(frameCounter%60==0){
@@ -105,12 +107,14 @@ class BallWorld {
 	}
 
 	private void updateSprites () {
+		
 		moveEnemy();
-		//See if a new poop comes out and if so, create it
-		makePoop();
 		//Handle direction of player
 		movePlayer();
 		//Handle poop movement
+		//See if a new poop comes out and if so, create it
+				makePoop(600, myEnemy.getTranslateX(), myEnemy.getTranslateY(), 
+						Poops);
 		ArrayList<ImageView> poopsToRemove=new ArrayList<ImageView>();
 		for(ImageView poop: Poops){
 			poop.setTranslateY(poop.getTranslateY() + poopSpeed);
@@ -157,7 +161,6 @@ class BallWorld {
         else if (keyCode == KeyCode.A && myPlayer.getTranslateX()>=-30) {
             myPlayer.setTranslateX(myPlayer.getTranslateX() - PLAYER_SPEED);
         }*/
-
 	}
 
 	/**
@@ -175,17 +178,40 @@ class BallWorld {
 	 * What to do each time the mouse is clicked (create a shot)
 	 */
 	private void handleMouseInput (MouseEvent e) {
-		ImageView newShot = new ImageView(new Image(getClass().getResourceAsStream("images/shot.png")));
+		makeShot();
+	}
+	
+	/**
+	 * 3 "Make" methods follow
+	 */
+	
+	private ImageView MakeSprite(double X, double Y, String fileName){
+		ImageView newSprite= new ImageView(new Image(getClass().getResourceAsStream(fileName)));
+		newSprite.setTranslateX(X);
+		newSprite.setTranslateY(Y);
+		myRoot.getChildren().add(newSprite);
+		return newSprite;
+	}
+	
+	private void makeShot(){
+		ImageView newShot = MakeSprite(myPlayer.getTranslateX(), myPlayer.getTranslateY(),
+				"images/shot.png");
 		newShot.setFitHeight(30);
 		newShot.setFitWidth(30);
 		myRoot.getChildren().add(newShot);
-		newShot.setTranslateX(myPlayer.getTranslateX());
-		newShot.setTranslateY(myPlayer.getTranslateY());
 		Shots.add(newShot);
-		/*myEnemy.setScaleX(myEnemy.getScaleX() * ENEMY_GROWTH_FACTOR);
-        myEnemy.setScaleY(myEnemy.getScaleY() * ENEMY_GROWTH_FACTOR);*/
 	}
-
+	
+	
+	private  ImageView makePoop(int chance, double X, double Y, ArrayList<ImageView> adder){
+		if(myGenerator.nextInt(chance)<=3){
+			ImageView newSprite=MakeSprite(X, Y, "images/Poop.gif");
+			adder.add(newSprite);
+			return newSprite;
+		}
+		return null;
+	}
+	
 	/**
 	 * What to do each time shapes collide
 	 */
@@ -197,30 +223,28 @@ class BallWorld {
 		}
 		return false;
 	}
-
-	private void makeChar(int width, int height){
-		myPlayer = new ImageView(new Image(getClass().getResourceAsStream("images/hand.png")));
-		myPlayer.setTranslateX(width/2);
-		myPlayer.setTranslateY(height-80);
-		myEnemy = new ImageView(new Image(getClass().getResourceAsStream("images/But.gif")));
-		myEnemy.setTranslateX(width/2);
-		myEnemy.setTranslateY(-50);
+	
+	private ImageView makeChar(double X, double Y, String fileName){
+		ImageView image= new ImageView(new Image(getClass().getResourceAsStream(fileName)));
+		image.setTranslateX(X);
+		image.setTranslateY(Y);
+		return image;
 	}
+	
 	private void makeHP(int width){
 		//make enemy HP bar
-		enemyHP= new ProgressBar();
-		enemyHP.setProgress(1);
-		enemyHP.setTranslateX(width-100);
-		enemyHP.setTranslateY(130);
-		enemyHP.setStyle("-fx-accent: red;");
-		myRoot.getChildren().add(enemyHP);
+		enemyHP= fullHP("-fx-accent: red;", width-100, 130);
 		//make my HP bar
-		myHP= new ProgressBar();
-		myHP.setProgress(1);
-		myHP.setStyle("-fx-accent: green;");
-		myHP.setTranslateX(width-100);
-		myHP.setTranslateY(150);
-		myRoot.getChildren().add(myHP);
+		myHP= fullHP("-fx-accent: green;", width-100, 150);
+	}
+	private ProgressBar fullHP(String colorString, int X, int Y){
+		ProgressBar bar= new ProgressBar();
+		bar.setProgress(1);
+		bar.setTranslateX(X);
+		bar.setTranslateY(Y);
+		bar.setStyle(colorString);
+		myRoot.getChildren().add(bar);
+		return bar;
 	}
 
 	private void makeTimer(){
@@ -249,17 +273,6 @@ class BallWorld {
 			myEnemyVelocity = new Point2D(myEnemyVelocity.getX() * -1, myEnemyVelocity.getY());
 	}
 
-	private void makePoop(){
-		if (myGenerator.nextInt(300)<=1){
-			ImageView newPoop = new ImageView(new Image(getClass().getResourceAsStream("images/Poop.gif")));
-			/*newPoop.setFitHeight(30);
-   	newPoop.setFitWidth(30);*/
-			newPoop.setTranslateX(myEnemy.getTranslateX());
-			newPoop.setTranslateY(myEnemy.getTranslateY());
-			myRoot.getChildren().add(newPoop);
-			Poops.add(newPoop);
-		}
-	}
 
 	private void movePlayer(){
 		if (keysPressed.size()>0){
