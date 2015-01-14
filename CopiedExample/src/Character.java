@@ -19,11 +19,8 @@ public class Character extends Sprite{
 	}
 	
 	public boolean checkCollide(Sprite projectile){
-		if (projectile.getBoundsInParent().intersects(getBoundsInParent())) {
-			System.out.println("Collide");
-			return true;
-		}
-		return false;
+		return (projectile.getBoundsInParent().intersects(getBoundsInParent()));
+			
 	}
 	
 	public void collisionUpdate(Sprite projectile, ArrayList<Sprite> shotsToRemove){

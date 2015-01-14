@@ -121,31 +121,35 @@ class BallWorld extends Screen{
 		}
 		//***********************
 		//CLEAN THIS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-		//Handle Poop Collisions
-		ArrayList<Sprite> poopsToRemove=new ArrayList<Sprite>();
-		for(Sprite poop: Poops){
-			poop.moveSprite();
-		}
-		myPlayer.updateAll(Poops, poopsToRemove);
+		//Move and Handle Poop Collisions
+		ArrayList<Sprite> poopsToRemove=returnCollisions(myPlayer, Poops);
 		//Handle shot collisions
-		ArrayList<Sprite> shotsToRemove=new ArrayList<Sprite>();
-		for(Sprite shot: Shots){
-			shot.moveSprite();
-		}
-		myEnemy.updateAll(Shots, shotsToRemove);
+		ArrayList<Sprite> shotsToRemove=returnCollisions(myEnemy, Shots);
 		
 		//Remove the poop and shots after collision occurs
-		for(ImageView poop: poopsToRemove){
-			Poops.remove(poop);
-			myRoot.getChildren().remove(poop);
-		}
-		for(ImageView shot: shotsToRemove){
-			Shots.remove(shot);
-			myRoot.getChildren().remove(shot);
-		}
+		removeFromScreen(Poops, poopsToRemove);
+		removeFromScreen(Shots, shotsToRemove);
 
 	}
 
+	private ArrayList<Sprite> returnCollisions(Character character, 
+			ArrayList<Sprite> projectiles){
+		ArrayList<Sprite> toRemove=new ArrayList<Sprite>();
+		for(Sprite shot: projectiles){
+			shot.moveSprite();
+		}
+		character.updateAll(projectiles, toRemove);
+		return toRemove;
+	}
+	
+	private void removeFromScreen(ArrayList<Sprite> projectiles, 
+			ArrayList<Sprite> toRemoveArray){
+		for (Sprite toRemove: toRemoveArray){
+			projectiles.remove(toRemove);
+			myRoot.getChildren().remove(toRemove);
+		}
+	}
+	
 	/**
 	 * What to do each time a key is pressed
 	 */
