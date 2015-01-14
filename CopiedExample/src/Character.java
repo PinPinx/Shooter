@@ -9,7 +9,7 @@ import javafx.scene.control.ProgressBar;
 public class Character extends Sprite{
 	protected ProgressBar HPBar;
 	protected double HP;
-	private Random myGenerator = new Random();
+	protected Random myGenerator = new Random();
 	
 	public Character(double X, double Y, double points, String fileName, Group myRoot){
 		super(X, Y, fileName, myRoot);
@@ -46,15 +46,6 @@ public class Character extends Sprite{
 	
 	protected void setHP(double points){
 		HP=points;
-	}
-	
-	public void moveSprite(double width){
-		if (getTranslateX() >= width-50 || getTranslateX() <= -50) {
-			setVelocity(getVelocity().getX() * -1, getVelocity().getY());
-		}
-		else if (myGenerator.nextInt(300)<=4)
-			setVelocity(getVelocity().getX() * -1, getVelocity().getY());
-		moveSprite();
 	}
 	
 }

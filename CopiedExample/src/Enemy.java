@@ -15,4 +15,14 @@ public class Enemy extends Character{
 		return new Poop(getTranslateX(), getTranslateY(), 10, myRoot);
 	}
 	
+
+	public void moveSprite(double width){
+		if (getTranslateX() >= width-50 || getTranslateX() <= -50) {
+			setVelocity(getVelocity().getX() * -1, getVelocity().getY());
+		}
+		else if (myGenerator.nextInt(300)<=4)
+			setVelocity(getVelocity().getX() * -1, getVelocity().getY());
+		moveSprite();
+	}
+	
 }

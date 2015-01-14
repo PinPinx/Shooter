@@ -32,17 +32,15 @@ import javafx.util.Duration;
 class BallWorld extends Screen{
 	private static final int PLAYER_SPEED = 10;
 	private static final int START_TIME = 60;
-	private int shotSpeed=10;
-	private int poopSpeed=10;
+	private double screenWidth;
 	private Scene myScene;
-	//private Group myRoot;
-	private ImageView myPlayer;
+	private Group myRoot;
+	private Player myPlayer;
 	private Enemy myEnemy;
-	private ProgressBar myHP;
 	private Random myGenerator = new Random();
 	private ArrayList<KeyCode> keysPressed;
 	private ArrayList<Sprite> Shots;
-	private ArrayList<Poop> Poops;
+	private ArrayList<Sprite> Poops;
 	private Label timerLabel;
 	private int frameCounter=0;
 	private IntegerProperty timeSeconds =
@@ -54,16 +52,15 @@ class BallWorld extends Screen{
 
 	public Scene init (Stage s, int width, int height) {
 		// create a scene graph to organize the scene
+		screenWidth=width;
 		myRoot = new Group();
 		//Create arraylists that tracks various items
 		keysPressed= new ArrayList<KeyCode>(2);
 		Shots= new ArrayList<Sprite>();
-		Poops= new ArrayList<Poop>();
+		Poops= new ArrayList<Sprite>();
 		// make the player and enemy and set their properties
-		myPlayer = makeSprite(width/2, height-80, "images/hand.png");
+		myPlayer = new Player(width/2, height-80, 50, myRoot);
 		myEnemy = new Enemy(width/2, -50, 100, myRoot);
-		//make HP bars
-		makeHP(width);
 		//set enemy velocity
 		myEnemy.setVelocity(6,0); 
 		//timer Implementation
@@ -116,23 +113,20 @@ class BallWorld extends Screen{
 
 	private void updateSprites () {
 
-		myEnemy.moveSprite(600);
-		//Handle direction of player
-		movePlayer();
-		//Handle poop movement
-		//See if a new loop comes out and if so, create it
+		myEnemy.moveSprite(screenWidth);
+		myPlayer.moveSprite(screenWidth, keysPressed);
+		//See if a new poop comes out and if so, create it
 		if (myGenerator.nextInt(600)<=3){
-			Poops.add(makePoop());
+			Poops.add(myEnemy.makePoop());
 		}
+		//***********************
+		//CLEAN THIS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//Handle Poop Collisions
-		ArrayList<ImageView> poopsToRemove=new ArrayList<ImageView>();
-		for(Poop poop: Poops){
-			poop.setTranslateY(poop.getTranslateY() + poopSpeed);
-			if(checkCollide(poop, myPlayer)){
-				poopsToRemove.add(poop);
-				myHP.setProgress(myHP.getProgress()-.05);
-			}
+		ArrayList<Sprite> poopsToRemove=new ArrayList<Sprite>();
+		for(Sprite poop: Poops){
+			poop.moveSprite();
 		}
+		myPlayer.updateAll(Poops, poopsToRemove);
 		//Handle shot collisions
 		ArrayList<Sprite> shotsToRemove=new ArrayList<Sprite>();
 		for(Sprite shot: Shots){
@@ -152,36 +146,6 @@ class BallWorld extends Screen{
 
 	}
 
-	/*private void testAllCollisions(ArrayList<ImageView> shots, 
-			ArrayList<ImageView> shotsToRemove){
-			for(ImageView shot: shots){
-				shot.setTranslateY(shot.getTranslateY() - shot.getSpeed());
-				collisionUpdate(shot, myEnemy, enemyHP, shotsToRemove, 100);
-			}
-	}*/
-	
-	/**
-	 * What to do each time shapes collide
-	 */
-	
-	private void collisionUpdate(ImageView shot, ImageView character, ProgressBar bar,
-			ArrayList<ImageView> shotsToRemove, double HP){
-		if(checkCollide(shot, character)){
-			shotsToRemove.add(shot);
-			bar.setProgress(bar.getProgress()-(5/HP));
-		}
-	}
-
-	private boolean checkCollide (Node shot, Node character) {
-		// check for collision
-		if (shot.getBoundsInParent().intersects(character.getBoundsInParent())) {
-			System.out.println("Collide");
-			
-			return true;
-		}
-		return false;
-	}
-	
 	/**
 	 * What to do each time a key is pressed
 	 */
@@ -195,7 +159,6 @@ class BallWorld extends Screen{
 	/**
 	 * What to do when key is released
 	 */
-
 	private void handleKeyRelease (KeyEvent e){
 		KeyCode keyCode=e.getCode();
 		if (keysPressed.contains(keyCode)){
@@ -207,60 +170,7 @@ class BallWorld extends Screen{
 	 * What to do each time the mouse is clicked (create a shot)
 	 */
 	private void handleMouseInput (MouseEvent e) {
-		Shots.add(makeShot());
-	}
-
-	/**
-	 * 3 "make" methods follow
-	 */
-
-	private ImageView makeSprite(double X, double Y, String fileName){
-		ImageView newSprite= new ImageView(new Image(getClass().getResourceAsStream(fileName)));
-		newSprite.setTranslateX(X);
-		newSprite.setTranslateY(Y);
-		myRoot.getChildren().add(newSprite);
-		return newSprite;
-	}
-
-	private Shot makeShot(){
-		return new Shot(myPlayer.getTranslateX(), myPlayer.getTranslateY(), 10, myRoot);
+		Shots.add(myPlayer.makeShot());
 	}
 	
-	private  Poop makePoop(){
-		return new Poop(myEnemy.getTranslateX(), myEnemy.getTranslateY(), 10, myRoot);
-	}
-
-
-	/**
-	 * Making hp bars 2 methods
- 	 */
-	private void makeHP(int width){
-		//make enemy HP bar
-		//make my HP bar
-		myHP= fullHP("-fx-accent: green;", width-100, 150);
-	}
-	
-	private ProgressBar fullHP(String colorString, int X, int Y){
-		ProgressBar bar= new ProgressBar();
-		bar.setProgress(1);
-		bar.setTranslateX(X);
-		bar.setTranslateY(Y);
-		bar.setStyle(colorString);
-		myRoot.getChildren().add(bar);
-		return bar;
-	}
-
-
-	private void movePlayer(){
-		if (keysPressed.size()>0){
-			if (keysPressed.get(0).equals(KeyCode.D)){
-				if (myPlayer.getTranslateX()<= myScene.getWidth()-30)
-					myPlayer.setTranslateX(myPlayer.getTranslateX() + PLAYER_SPEED);
-			}
-			else if (keysPressed.get(0).equals(KeyCode.A)){
-				if (myPlayer.getTranslateX()>=-30)
-					myPlayer.setTranslateX(myPlayer.getTranslateX() - PLAYER_SPEED);
-			}
-		}
-	}
 }
