@@ -7,7 +7,7 @@ import javafx.scene.input.KeyCode;
 
 public class Player extends Character{
 	private Group myRoot;
-	
+	private boolean inHard=false;
 	public Player(double X, double Y, double points, Group Root){
 		super(X, Y, points, "images/hand.png", Root);
 		setBarLocation(500, 150);
@@ -16,9 +16,17 @@ public class Player extends Character{
 	}
 	
 	public Shot makeShot(){
-		return new Shot(getTranslateX(), getTranslateY(), 10, myRoot);
+		Shot shot=new Shot(getTranslateX(), getTranslateY(), 10, myRoot);
+		if(inHard){
+			shot.setVelocity(.2 * getVelocity().getX(), shot.getVelocity().getY());
+		}
+		return shot;
 	}
 	
+	public void makeHard(){
+		inHard=true;
+	}
+
 	public void moveSprite(double width, ArrayList<KeyCode> keys){
 		if (keys.size()>0){
 			if (keys.get(0).equals(KeyCode.D) && getTranslateX()<=width-30){

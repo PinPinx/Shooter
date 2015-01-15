@@ -138,7 +138,7 @@ class Level1 extends Screen{
 	private void goNextLevel(){
 		if (myEnemy.getHP()<=0){
 			clearElements();
-			Level1 myGame = new Level1();
+			Level2 myGame = new Level2();
 			// attach game to the stage and display it
 			KeyFrame frame = myGame.start(60);
 			myGame.showAndAnim(stage, 600, 600, frame);
@@ -161,6 +161,7 @@ class Level1 extends Screen{
 			myPlayer = new Player(600/2, 600-80, PLAYER_HP, myRoot);
 			myEnemy = new Enemy(600/2, -50, ENEMY_HP, myRoot);
 	}
+	
 	private ArrayList<Sprite> returnCollisions(Character character, 
 			ArrayList<Sprite> projectiles){
 		ArrayList<Sprite> toRemove=new ArrayList<Sprite>();
@@ -198,7 +199,19 @@ class Level1 extends Screen{
 			keysPressed.remove(keyCode);
 		}
 	}
-
+	/**
+	 * Needed for subclasses to see enemy
+	 */
+	public Enemy getEnemy(){
+		return myEnemy;
+	}
+	
+	/**
+	 * Needed for subclasses to see player
+	 */
+	public Player getPlayer(){
+		return myPlayer;
+	}
 	/**
 	 * What to do each time the mouse is clicked (create a shot)
 	 */
