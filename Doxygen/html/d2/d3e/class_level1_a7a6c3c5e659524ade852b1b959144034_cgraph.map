@@ -1,0 +1,6 @@
+<map id="Level1.makeScene" name="Level1.makeScene">
+<area shape="rect" id="node2" href="$d2/d3e/class_level1.html#a9ada798f6a1547c9ae408b800d76835b" title="Level1.handleKeyInput" alt="" coords="207,5,371,32"/>
+<area shape="rect" id="node3" href="$d2/d3e/class_level1.html#a76b72ede88f469adb5f1b7da5ad39598" title="Level1.handleKeyRelease" alt="" coords="199,56,380,83"/>
+<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#ac36d707d46288fb3ee16958317c6f68f" title="Level1.handleMouseInput" alt="" coords="197,107,381,133"/>
+<area shape="rect" id="node5" href="$d8/d53/class_player.html#aabc2918b7a68a9557a2f01b243a21fa8" title="Player.makeShot" alt="" coords="429,107,560,133"/>
+</map>

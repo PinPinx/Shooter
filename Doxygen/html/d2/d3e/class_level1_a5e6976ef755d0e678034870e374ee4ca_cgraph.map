@@ -1,0 +1,6 @@
+<map id="Level1.goGameOver" name="Level1.goGameOver">
+<area shape="rect" id="node2" href="$d2/d3e/class_level1.html#ac4098d447b9841cabec6be3bb719bd26" title="Level1.clearElements" alt="" coords="206,5,365,32"/>
+<area shape="rect" id="node3" href="$d7/da7/class_character.html#a4dc23a76b34bcbb84abba1b116847268" title="Character.getHP" alt="" coords="222,56,349,83"/>
+<area shape="rect" id="node4" href="$d6/d21/class_screen.html#a5d9534b81b96cfc0a00009dea6be6c09" title="Screen.showScreen" alt="" coords="211,107,359,133"/>
+<area shape="rect" id="node5" href="$d6/d21/class_screen.html#ac7ca0a382b3177bbea4e2a4e7c0f442e" title="Screen.init" alt="" coords="413,107,504,133"/>
+</map>

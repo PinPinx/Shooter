@@ -1,0 +1,12 @@
+<map id="Enemy.makeAngry" name="Enemy.makeAngry">
+<area shape="rect" id="node2" href="$d2/d3e/class_level1.html#ac56e75129bb2946c38cfcf43608f3f05" title="Level1.goNextLevel" alt="" coords="195,31,341,57"/>
+<area shape="rect" id="node3" href="$d2/d3e/class_level1.html#a78a7fb5633734b1815af8db43db23a41" title="Level1.updateSprites" alt="" coords="389,5,547,32"/>
+<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#a324da1e22a7a87fa4bb1859b5774bdba" title="Level1.updateFrame" alt="" coords="595,5,747,32"/>
+<area shape="rect" id="node5" href="$d2/d3e/class_level1.html#a0871325d07c0614d5f1f2df7df13b703" title="Level1.start" alt="" coords="795,31,893,57"/>
+<area shape="rect" id="node6" href="$d2/db8/class_menu.html#ab6296880308728ced459f772430d025b" title="Menu.createGame" alt="" coords="941,31,1083,57"/>
+<area shape="rect" id="node7" href="$d2/db8/class_menu.html#a53c8b072d5ec777994fed9ee76c98561" title="Menu.handle" alt="" coords="1131,31,1235,57"/>
+<area shape="rect" id="node8" href="$d2/db8/class_menu.html#aff7a7627619921545f94547ab6135007" title="Menu.addButton" alt="" coords="1283,31,1411,57"/>
+<area shape="rect" id="node9" href="$d5/db1/class_game_over.html#abb505ac8c26999beff755f4c299370da" title="GameOver.addAllButtons" alt="" coords="1459,5,1642,32"/>
+<area shape="rect" id="node10" href="$d2/db8/class_menu.html#a461e62e606af2391013ce3aaf92a8cc7" title="Menu.addAllButtons" alt="" coords="1475,56,1626,83"/>
+<area shape="rect" id="node11" href="$d2/db8/class_menu.html#a3c99ad09e9f2f975c1a0d0597642651a" title="Menu.init" alt="" coords="1691,56,1771,83"/>
+</map>
