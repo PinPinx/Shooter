@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 
 import javafx.scene.Group;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyCode;
 
 
 public class Player extends Character{
 	private Group myRoot;
+	
 	public Player(double X, double Y, double points, Group Root){
 		super(X, Y, points, "images/hand.png", Root);
 		setBarLocation(500, 150);

@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  public class Screen {
 	protected Group myRoot;
 	public void showScreen(Stage s, int width, int height){
-		Scene scene = this.init(s, 600, 600);
+		Scene scene = this.init(s, width, height);
         s.setScene(scene);
         s.show();
 	}
@@ -17,11 +17,17 @@ import javafx.stage.Stage;
 	public Scene init(Stage s, int width, int height){
 		return null;
 	}
+	
 	public void startAnim(KeyFrame frame){
 		Timeline animation = new Timeline();
 		animation.setCycleCount(Animation.INDEFINITE);
 		animation.getKeyFrames().add(frame);
 		animation.play();
+	}
+	
+	public void showAndAnim(Stage s, int width, int height, KeyFrame frame){
+		showScreen(s, width, height);
+		startAnim(frame);
 	}
 	
 }

@@ -7,13 +7,14 @@ import javafx.scene.control.ProgressBar;
 
 
 public class Character extends Sprite{
+	private static final int DAMAGE = 5;
+	private double fullHP;
+	private double HP;
 	protected ProgressBar HPBar;
-	protected double HP;
-	protected Random myGenerator = new Random();
-	
 	public Character(double X, double Y, double points, String fileName, Group myRoot){
 		super(X, Y, fileName, myRoot);
 		HPBar=new ProgressBar(1);
+		fullHP=points;
 		HP=points;
 		myRoot.getChildren().add(HPBar);
 	}
@@ -26,7 +27,8 @@ public class Character extends Sprite{
 	public void collisionUpdate(Sprite projectile, ArrayList<Sprite> shotsToRemove){
 		if(checkCollide(projectile)){
 			shotsToRemove.add(projectile);
-			HPBar.setProgress(HPBar.getProgress()-(5/HP));
+			HP=HP-DAMAGE;
+			HPBar.setProgress(HPBar.getProgress()-(DAMAGE/fullHP));
 		}
 	}
 	
@@ -41,8 +43,11 @@ public class Character extends Sprite{
 		HPBar.setTranslateY(Y);
 	}
 	
-	protected void setHP(double points){
+	public void setHP(double points){
 		HP=points;
 	}
 	
+	public double getHP(){
+		return HP;
+	}
 }

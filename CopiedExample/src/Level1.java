@@ -29,8 +29,9 @@ import javafx.util.Duration;
  *
  * @author Robert C. Duvall
  */
-class BallWorld extends Screen{
-	private static final int PLAYER_SPEED = 10;
+class Level1 extends Screen{
+	private static final int PLAYER_HP = 50;
+	private static final int ENEMY_HP = 100;
 	private static final int START_TIME = 60;
 	private double screenWidth;
 	private Scene myScene;
@@ -45,6 +46,7 @@ class BallWorld extends Screen{
 	private int frameCounter=0;
 	private IntegerProperty timeSeconds =
 			new SimpleIntegerProperty(START_TIME);
+	private Stage stage;
 	/**
 	 * Create the game's scene
 	 */
@@ -52,6 +54,7 @@ class BallWorld extends Screen{
 
 	public Scene init (Stage s, int width, int height) {
 		// create a scene graph to organize the scene
+		stage=s;
 		screenWidth=width;
 		myRoot = new Group();
 		//Create arraylists that tracks various items
@@ -59,8 +62,8 @@ class BallWorld extends Screen{
 		Shots= new ArrayList<Sprite>();
 		Poops= new ArrayList<Sprite>();
 		// make the player and enemy and set their properties
-		myPlayer = new Player(width/2, height-80, 50, myRoot);
-		myEnemy = new Enemy(width/2, -50, 100, myRoot);
+		myPlayer = new Player(width/2, height-80, PLAYER_HP, myRoot);
+		myEnemy = new Enemy(width/2, -50, ENEMY_HP, myRoot);
 		//set enemy velocity
 		myEnemy.setVelocity(6,0); 
 		//timer Implementation
@@ -88,8 +91,10 @@ class BallWorld extends Screen{
 	}
 
 	private void updateFrame(){
-		updateSprites();
-		updateTimer();
+		if(!(timeSeconds.get()==0)){
+			updateSprites();
+			updateTimer();
+		}
 	}
 	
 /**
@@ -112,26 +117,50 @@ class BallWorld extends Screen{
 	}
 
 	private void updateSprites () {
-
 		myEnemy.moveSprite(screenWidth);
 		myPlayer.moveSprite(screenWidth, keysPressed);
 		//See if a new poop comes out and if so, create it
-		if (myGenerator.nextInt(600)<=3){
-			Poops.add(myEnemy.makePoop());
+		if (myGenerator.nextInt(200)<=3){
+			Poops.add(myEnemy.makePoop(myPlayer));
 		}
-		//***********************
-		//CLEAN THIS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		//Move and Handle Poop Collisions
 		ArrayList<Sprite> poopsToRemove=returnCollisions(myPlayer, Poops);
 		//Handle shot collisions
 		ArrayList<Sprite> shotsToRemove=returnCollisions(myEnemy, Shots);
-		
+		//go to different screen if HP reaches 0 for either one
+		goNextLevel();
+		goGameOver();
 		//Remove the poop and shots after collision occurs
 		removeFromScreen(Poops, poopsToRemove);
 		removeFromScreen(Shots, shotsToRemove);
-
 	}
 
+	private void goNextLevel(){
+		if (myEnemy.getHP()<=0){
+			clearElements();
+			Level1 myGame = new Level1();
+			// attach game to the stage and display it
+			KeyFrame frame = myGame.start(60);
+			myGame.showAndAnim(stage, 600, 600, frame);
+			myEnemy.makeAngry();
+		}
+	}
+	
+	private void goGameOver(){
+		if (myPlayer.getHP()<=0){
+			clearElements();
+			GameOver itsOver=new GameOver();
+		        // attach game to the stage and display it
+		    itsOver.showScreen(stage, 600, 600);
+		}
+	}
+	
+	private void clearElements(){
+			timeSeconds.set(0);
+			myRoot.getChildren().clear();
+			myPlayer = new Player(600/2, 600-80, PLAYER_HP, myRoot);
+			myEnemy = new Enemy(600/2, -50, ENEMY_HP, myRoot);
+	}
 	private ArrayList<Sprite> returnCollisions(Character character, 
 			ArrayList<Sprite> projectiles){
 		ArrayList<Sprite> toRemove=new ArrayList<Sprite>();
