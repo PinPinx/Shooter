@@ -1,5 +1,0 @@
-<map id="Player.makeShot" name="Player.makeShot">
-<area shape="rect" id="node2" href="$d2/d3e/class_level1.html#ac36d707d46288fb3ee16958317c6f68f" title="Level1.handleMouseInput" alt="" coords="184,5,368,32"/>
-<area shape="rect" id="node3" href="$d2/d3e/class_level1.html#a7a6c3c5e659524ade852b1b959144034" title="Level1.makeScene" alt="" coords="417,5,559,32"/>
-<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#a587fa04eadbb6b07c199ff971cff79df" title="Level1.init" alt="" coords="609,5,695,32"/>
-</map>
