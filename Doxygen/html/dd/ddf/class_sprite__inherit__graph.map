@@ -1,0 +1,7 @@
+<map id="Sprite" name="Sprite">
+<area shape="rect" id="node3" href="$d7/da7/class_character.html" title="Character" alt="" coords="40,155,125,181"/>
+<area shape="rect" id="node6" href="$d3/d20/class_poop.html" title="Poop" alt="" coords="150,155,204,181"/>
+<area shape="rect" id="node7" href="$de/d74/class_shot.html" title="Shot" alt="" coords="229,155,280,181"/>
+<area shape="rect" id="node4" href="$dd/d7a/class_enemy.html" title="Enemy" alt="" coords="5,229,72,256"/>
+<area shape="rect" id="node5" href="$d8/d53/class_player.html" title="Player" alt="" coords="96,229,157,256"/>
+</map>

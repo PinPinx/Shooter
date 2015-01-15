@@ -1,0 +1,4 @@
+<map id="Enemy" name="Enemy">
+<area shape="rect" id="node2" href="$d7/da7/class_character.html" title="Character" alt="" coords="137,187,223,213"/>
+<area shape="rect" id="node3" href="$d7/dbf/class_sprite.html" title="Sprite" alt="" coords="73,96,132,123"/>
+</map>

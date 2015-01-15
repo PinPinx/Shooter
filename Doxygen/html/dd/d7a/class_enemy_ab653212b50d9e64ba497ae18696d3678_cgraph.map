@@ -1,0 +1,5 @@
+<map id="Enemy.moveSprite" name="Enemy.moveSprite">
+<area shape="rect" id="node2" href="$d7/dbf/class_sprite.html#a4dd4a643703de09c632a0e7d70a570e7" title="Sprite.getVelocity" alt="" coords="199,5,334,32"/>
+<area shape="rect" id="node3" href="$d7/dbf/class_sprite.html#ab8f846b7ba77ae72ad09f48da22ceea7" title="Sprite.moveSprite" alt="" coords="197,56,336,83"/>
+<area shape="rect" id="node4" href="$d7/dbf/class_sprite.html#accdf1c21264c6ff648ece508cf176bfb" title="Sprite.setVelocity" alt="" coords="200,107,333,133"/>
+</map>

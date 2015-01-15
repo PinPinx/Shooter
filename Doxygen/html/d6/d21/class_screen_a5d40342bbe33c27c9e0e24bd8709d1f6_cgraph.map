@@ -1,0 +1,5 @@
+<map id="Screen.showAndAnim" name="Screen.showAndAnim">
+<area shape="rect" id="node2" href="$d6/d21/class_screen.html#a5d9534b81b96cfc0a00009dea6be6c09" title="Screen.showScreen" alt="" coords="217,5,365,32"/>
+<area shape="rect" id="node4" href="$d6/d21/class_screen.html#a601576a0d49770789b2eb08328f09c53" title="Screen.startAnim" alt="" coords="223,56,358,83"/>
+<area shape="rect" id="node3" href="$d6/d21/class_screen.html#ac7ca0a382b3177bbea4e2a4e7c0f442e" title="Screen.init" alt="" coords="413,5,504,32"/>
+</map>
