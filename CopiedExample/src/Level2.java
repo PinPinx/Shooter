@@ -17,7 +17,7 @@ public class Level2 extends Level1{
 	
 	protected void goNextLevel(){
 		if (super.getEnemy().getHP()<=0){
-			clearElements();
+			gameOff();
 			GameWin youWin=new GameWin();
 	        // attach game to the stage and display it
 			youWin.showScreen(stage, 600, 600);

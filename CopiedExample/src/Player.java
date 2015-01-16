@@ -7,7 +7,10 @@ import javafx.scene.input.KeyCode;
 
 public class Player extends Character{
 	private Group myRoot;
+	private int shotCounter;
 	private boolean inHard=false;
+	
+	
 	public Player(double X, double Y, double points, Group Root){
 		super(X, Y, points, "images/hand.png", Root);
 		setBarLocation(500, 150);
@@ -16,11 +19,16 @@ public class Player extends Character{
 	}
 	
 	public Shot makeShot(){
+		shotCounter++;
 		Shot shot=new Shot(getTranslateX(), getTranslateY(), 10, myRoot);
 		if(inHard){
 			shot.setVelocity(.5 * getVelocity().getX(), shot.getVelocity().getY());
 		}
 		return shot;
+	}
+	
+	public int getCounter(){
+		return shotCounter;
 	}
 	
 	public void makeHard(){

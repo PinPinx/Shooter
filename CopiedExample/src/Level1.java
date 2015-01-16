@@ -32,7 +32,10 @@ import javafx.util.Duration;
 class Level1 extends Screen{
 	private static final int PLAYER_HP = 50;
 	private static final int ENEMY_HP = 100;
+	private static final int ENEMY_V=6;
 	private static final int START_TIME = 60;
+	private static final int SHOT_LIMIT = 50;
+	private static final int FRAMES_PER_SEC = 60;
 	private double screenWidth;
 	private Scene myScene;
 	private Group myRoot;
@@ -42,12 +45,15 @@ class Level1 extends Screen{
 	private ArrayList<KeyCode> keysPressed;
 	private ArrayList<Sprite> Shots;
 	private ArrayList<Sprite> Poops;
-	private Label timerLabel;
 	private int frameCounter=0;
 	private IntegerProperty timeSeconds =
 			new SimpleIntegerProperty(START_TIME);
-	private Stage stage;
+	private IntegerProperty shotCount=
+			new SimpleIntegerProperty(SHOT_LIMIT);
+	private Stage stage;			
 	private boolean cheater=false;
+	private boolean gameOn=true;
+	private boolean cheat2=false;
 	/**
 	 * Create the game's scene
 	 */
@@ -66,9 +72,10 @@ class Level1 extends Screen{
 		myPlayer = new Player(width/2, height-80, PLAYER_HP, myRoot);
 		myEnemy = new Enemy(width/2, -50, ENEMY_HP, myRoot);
 		//set enemy velocity
-		myEnemy.setVelocity(6,0); 
+		myEnemy.setVelocity(ENEMY_V,0); 
 		//timer Implementation
 		makeTimer();
+		makeCounter();
 		// create a place to display the shapes and react to input
 		return makeScene(width, height);
 	}
@@ -92,7 +99,10 @@ class Level1 extends Screen{
 	}
 
 	private void updateFrame(){
-		if(!(timeSeconds.get()==0)){
+		//check if have to go to next level
+		if(gameOn){
+			goNextLevel();
+			goGameOver();
 			updateSprites();
 			updateTimer();
 		}
@@ -104,17 +114,27 @@ class Level1 extends Screen{
 	
 	private void updateTimer(){
 		frameCounter++;
-		if(frameCounter%60==0){
+		//60=frames per second
+		if(frameCounter%FRAMES_PER_SEC==0){
 			timeSeconds.set(timeSeconds.get()-1);
 		}
 	}
 	
+	private Label makeLabel(Color color, IntegerProperty binder){
+		Label label=new Label();
+		label.textProperty().bind(binder.asString());
+		label.setTextFill(color);
+		label.setStyle("-fx-font-size:4em;");
+		myRoot.getChildren().add(label);
+		return label;
+	}
 	private void makeTimer(){
-		timerLabel = new Label();
-		timerLabel.textProperty().bind(timeSeconds.asString());
-		timerLabel.setTextFill(Color.RED);
-		timerLabel.setStyle("-fx-font-size: 4em;");
-		myRoot.getChildren().add(timerLabel);
+		makeLabel(Color.RED, timeSeconds);
+	}
+	
+	private void makeCounter(){
+		Label label=makeLabel(Color.BLUE, shotCount);
+		label.setTranslateY(50);
 	}
 
 	private void updateSprites () {
@@ -122,6 +142,9 @@ class Level1 extends Screen{
 			myEnemy.setHP(0);
 		if(keysPressed.contains(KeyCode.I))
 			cheater=true;
+		if(keysPressed.contains(KeyCode.M)){
+			cheat2=true;
+		}
 		myEnemy.moveSprite(screenWidth);
 		myPlayer.moveSprite(screenWidth, keysPressed);
 		//See if a new poop comes out and if so, create it
@@ -133,41 +156,39 @@ class Level1 extends Screen{
 		//Handle shot collisions
 		ArrayList<Sprite> shotsToRemove=returnCollisions(myEnemy, Shots);
 		//go to different screen if HP reaches 0 for either one
-		goNextLevel();
-		goGameOver();
 		//Remove the poop and shots after collision occurs
 		removeFromScreen(Poops, poopsToRemove);
 		removeFromScreen(Shots, shotsToRemove);
 		if(cheater){
 			myPlayer.setFull();
 		}
+		if(cheat2){
+			shotCount.set(SHOT_LIMIT);
+		}
 	}
 
 	protected void goNextLevel(){
 		if (myEnemy.getHP()<=0){
-			clearElements();
+			gameOff();
 			Level2 myGame = new Level2();
 			// attach game to the stage and display it
-			KeyFrame frame = myGame.start(60);
+			KeyFrame frame = myGame.start(FRAMES_PER_SEC);
 			myGame.showAndAnim(stage, 600, 600, frame);
 			myEnemy.makeAngry();
 		}
 	}
 	
 	private void goGameOver(){
-		if (myPlayer.getHP()<=0 || timeSeconds.get()<0){
-			clearElements();
+		if (myPlayer.getHP()<=0 || timeSeconds.get()<=0 || shotCount.get()<0){
+			gameOff();
 			GameOver itsOver=new GameOver();
 		        // attach game to the stage and display it
 		    itsOver.showScreen(stage, 600, 600);
 		}
 	}
 	
-	protected void clearElements(){
-			timeSeconds.set(0);
-			myRoot.getChildren().clear();
-			myPlayer = new Player(600/2, 600-80, PLAYER_HP, myRoot);
-			myEnemy = new Enemy(600/2, -50, ENEMY_HP, myRoot);
+	protected void gameOff(){
+			gameOn=false;
 	}
 	
 	private ArrayList<Sprite> returnCollisions(Character character, 
@@ -225,6 +246,7 @@ class Level1 extends Screen{
 	 */
 	private void handleMouseInput (MouseEvent e) {
 		Shots.add(myPlayer.makeShot());
+		shotCount.set(shotCount.get()-1);
 	}
 	
 }
