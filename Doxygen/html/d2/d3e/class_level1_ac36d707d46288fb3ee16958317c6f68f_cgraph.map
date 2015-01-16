@@ -1,5 +1,0 @@
-<map id="Level1.handleMouseInput" name="Level1.handleMouseInput">
-<area shape="rect" id="node2" href="$d8/d53/class_player.html#aabc2918b7a68a9557a2f01b243a21fa8" title="Player.makeShot" alt="" coords="237,31,368,57"/>
-<area shape="rect" id="node3" href="$d7/dbf/class_sprite.html#accdf1c21264c6ff648ece508cf176bfb" title="Sprite.setVelocity" alt="" coords="417,5,551,32"/>
-<area shape="rect" id="node4" href="$d7/dbf/class_sprite.html#a4dd4a643703de09c632a0e7d70a570e7" title="Sprite.getVelocity" alt="" coords="417,56,551,83"/>
-</map>

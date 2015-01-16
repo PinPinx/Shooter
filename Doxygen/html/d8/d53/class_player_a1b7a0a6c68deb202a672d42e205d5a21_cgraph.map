@@ -1,4 +1,0 @@
-<map id="Player.moveSprite" name="Player.moveSprite">
-<area shape="rect" id="node2" href="$d7/dbf/class_sprite.html#ab8f846b7ba77ae72ad09f48da22ceea7" title="Sprite.moveSprite" alt="" coords="192,5,331,32"/>
-<area shape="rect" id="node3" href="$d7/dbf/class_sprite.html#accdf1c21264c6ff648ece508cf176bfb" title="Sprite.setVelocity" alt="" coords="195,56,328,83"/>
-</map>

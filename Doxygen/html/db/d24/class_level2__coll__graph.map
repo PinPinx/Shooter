@@ -1,8 +1,0 @@
-<map id="Level2" name="Level2">
-<area shape="rect" id="node2" href="$d2/d3e/class_level1.html" title="Level1" alt="" coords="939,271,1002,297"/>
-<area shape="rect" id="node3" href="$d6/d21/class_screen.html" title="Screen" alt="" coords="685,5,752,32"/>
-<area shape="rect" id="node9" href="$dd/d7a/class_enemy.html" title="Enemy" alt="" coords="685,372,752,399"/>
-<area shape="rect" id="node18" href="$d8/d53/class_player.html" title="Player" alt="" coords="688,321,749,348"/>
-<area shape="rect" id="node10" href="$d7/da7/class_character.html" title="Character" alt="" coords="413,349,499,376"/>
-<area shape="rect" id="node11" href="$d7/dbf/class_sprite.html" title="Sprite" alt="" coords="239,324,299,351"/>
-</map>

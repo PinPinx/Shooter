@@ -1,5 +1,0 @@
-<map id="Character" name="Character">
-<area shape="rect" id="node4" href="$dd/d7a/class_enemy.html" title="Enemy" alt="" coords="5,229,72,256"/>
-<area shape="rect" id="node5" href="$d8/d53/class_player.html" title="Player" alt="" coords="96,229,157,256"/>
-<area shape="rect" id="node2" href="$d7/dbf/class_sprite.html" title="Sprite" alt="" coords="53,80,112,107"/>
-</map>
