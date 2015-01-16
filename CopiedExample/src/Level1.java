@@ -47,6 +47,7 @@ class Level1 extends Screen{
 	private IntegerProperty timeSeconds =
 			new SimpleIntegerProperty(START_TIME);
 	private Stage stage;
+	private boolean cheater=false;
 	/**
 	 * Create the game's scene
 	 */
@@ -58,7 +59,7 @@ class Level1 extends Screen{
 		screenWidth=width;
 		myRoot = new Group();
 		//Create arraylists that tracks various items
-		keysPressed= new ArrayList<KeyCode>(2);
+		keysPressed= new ArrayList<KeyCode>(4);
 		Shots= new ArrayList<Sprite>();
 		Poops= new ArrayList<Sprite>();
 		// make the player and enemy and set their properties
@@ -117,6 +118,10 @@ class Level1 extends Screen{
 	}
 
 	private void updateSprites () {
+		if(keysPressed.contains(KeyCode.W))
+			myEnemy.setHP(0);
+		if(keysPressed.contains(KeyCode.I))
+			cheater=true;
 		myEnemy.moveSprite(screenWidth);
 		myPlayer.moveSprite(screenWidth, keysPressed);
 		//See if a new poop comes out and if so, create it
@@ -133,9 +138,12 @@ class Level1 extends Screen{
 		//Remove the poop and shots after collision occurs
 		removeFromScreen(Poops, poopsToRemove);
 		removeFromScreen(Shots, shotsToRemove);
+		if(cheater){
+			myPlayer.setFull();
+		}
 	}
 
-	private void goNextLevel(){
+	protected void goNextLevel(){
 		if (myEnemy.getHP()<=0){
 			clearElements();
 			Level2 myGame = new Level2();
@@ -147,7 +155,7 @@ class Level1 extends Screen{
 	}
 	
 	private void goGameOver(){
-		if (myPlayer.getHP()<=0){
+		if (myPlayer.getHP()<=0 || timeSeconds.get()<0){
 			clearElements();
 			GameOver itsOver=new GameOver();
 		        // attach game to the stage and display it
@@ -155,7 +163,7 @@ class Level1 extends Screen{
 		}
 	}
 	
-	private void clearElements(){
+	protected void clearElements(){
 			timeSeconds.set(0);
 			myRoot.getChildren().clear();
 			myPlayer = new Player(600/2, 600-80, PLAYER_HP, myRoot);

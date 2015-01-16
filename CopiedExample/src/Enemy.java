@@ -35,7 +35,7 @@ public class Enemy extends Character{
 		else if (myGenerator.nextInt(300)<=7)
 			setVelocity(getVelocity().getX() * -1, getVelocity().getY());
 		if (Angry){
-			setVelocity(getVelocity().getX() * 1.001, getVelocity().getY() * 1.001);
+			setVelocity(getVelocity().getX() * 1.0002, getVelocity().getY() * 1.0002);
 		}
 		moveSprite();
 	}

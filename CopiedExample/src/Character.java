@@ -28,7 +28,7 @@ public class Character extends Sprite{
 		if(checkCollide(projectile)){
 			shotsToRemove.add(projectile);
 			HP=HP-DAMAGE;
-			HPBar.setProgress(HPBar.getProgress()-(DAMAGE/fullHP));
+			HPBar.setProgress(HP/fullHP);
 		}
 	}
 	
@@ -47,6 +47,10 @@ public class Character extends Sprite{
 		HP=points;
 	}
 	
+	public void setFull(){
+		HP=fullHP;
+		HPBar.setProgress(1);
+	}
 	public double getHP(){
 		return HP;
 	}

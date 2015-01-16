@@ -18,7 +18,7 @@ public class Player extends Character{
 	public Shot makeShot(){
 		Shot shot=new Shot(getTranslateX(), getTranslateY(), 10, myRoot);
 		if(inHard){
-			shot.setVelocity(.2 * getVelocity().getX(), shot.getVelocity().getY());
+			shot.setVelocity(.5 * getVelocity().getX(), shot.getVelocity().getY());
 		}
 		return shot;
 	}
