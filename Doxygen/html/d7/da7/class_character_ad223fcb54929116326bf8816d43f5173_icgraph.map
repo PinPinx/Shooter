@@ -1,0 +1,16 @@
+<map id="Character.checkCollide" name="Character.checkCollide">
+<area shape="rect" id="node2" href="$d7/da7/class_character.html#ade25acccb27ac9aeb2752b2df29d075f" title="Character.collisionUpdate" alt="" coords="222,81,407,108"/>
+<area shape="rect" id="node3" href="$d7/da7/class_character.html#aa2149c166e797ae0ded67d9f768ac7f3" title="Character.updateAll" alt="" coords="457,81,605,108"/>
+<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#aa75f107bf925594da75a1d82cf64044d" title="Level1.returnCollisions" alt="" coords="653,81,819,108"/>
+<area shape="rect" id="node5" href="$d2/d3e/class_level1.html#a78a7fb5633734b1815af8db43db23a41" title="Level1.updateSprites" alt="" coords="867,81,1024,108"/>
+<area shape="rect" id="node6" href="$d2/d3e/class_level1.html#a324da1e22a7a87fa4bb1859b5774bdba" title="Level1.updateFrame" alt="" coords="1072,56,1224,83"/>
+<area shape="rect" id="node7" href="$d2/d3e/class_level1.html#a0871325d07c0614d5f1f2df7df13b703" title="Level1.start" alt="" coords="1273,56,1370,83"/>
+<area shape="rect" id="node8" href="$d2/d3e/class_level1.html#ac56e75129bb2946c38cfcf43608f3f05" title="Level1.goNextLevel" alt="" coords="1419,107,1565,133"/>
+<area shape="rect" id="node9" href="$d2/db8/class_menu.html#ab6296880308728ced459f772430d025b" title="Menu.createGame" alt="" coords="1421,56,1563,83"/>
+<area shape="rect" id="node10" href="$d2/db8/class_menu.html#a53c8b072d5ec777994fed9ee76c98561" title="Menu.handle" alt="" coords="1613,56,1717,83"/>
+<area shape="rect" id="node11" href="$d2/db8/class_menu.html#aff7a7627619921545f94547ab6135007" title="Menu.addButton" alt="" coords="1765,56,1893,83"/>
+<area shape="rect" id="node12" href="$d5/db1/class_game_over.html#abb505ac8c26999beff755f4c299370da" title="GameOver.addAllButtons" alt="" coords="1942,5,2125,32"/>
+<area shape="rect" id="node13" href="$dd/d7f/class_game_win.html#a0ebbfe299d7456f57ae3dbf3817b7f8d" title="GameWin.addAllButtons" alt="" coords="1945,56,2121,83"/>
+<area shape="rect" id="node14" href="$d2/db8/class_menu.html#a461e62e606af2391013ce3aaf92a8cc7" title="Menu.addAllButtons" alt="" coords="1958,107,2109,133"/>
+<area shape="rect" id="node15" href="$d2/db8/class_menu.html#a3c99ad09e9f2f975c1a0d0597642651a" title="Menu.init" alt="" coords="2173,107,2253,133"/>
+</map>

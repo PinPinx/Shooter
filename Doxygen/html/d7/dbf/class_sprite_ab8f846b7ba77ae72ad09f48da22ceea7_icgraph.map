@@ -1,0 +1,15 @@
+<map id="Sprite.moveSprite" name="Sprite.moveSprite">
+<area shape="rect" id="node2" href="$d8/d53/class_player.html#a1b7a0a6c68deb202a672d42e205d5a21" title="Player.moveSprite" alt="" coords="195,56,333,83"/>
+<area shape="rect" id="node14" href="$dd/d7a/class_enemy.html#ab653212b50d9e64ba497ae18696d3678" title="Enemy.moveSprite" alt="" coords="193,107,335,133"/>
+<area shape="rect" id="node3" href="$d2/d3e/class_level1.html#a78a7fb5633734b1815af8db43db23a41" title="Level1.updateSprites" alt="" coords="384,81,541,108"/>
+<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#a324da1e22a7a87fa4bb1859b5774bdba" title="Level1.updateFrame" alt="" coords="589,56,741,83"/>
+<area shape="rect" id="node5" href="$d2/d3e/class_level1.html#a0871325d07c0614d5f1f2df7df13b703" title="Level1.start" alt="" coords="790,56,887,83"/>
+<area shape="rect" id="node6" href="$d2/db8/class_menu.html#ab6296880308728ced459f772430d025b" title="Menu.createGame" alt="" coords="939,56,1080,83"/>
+<area shape="rect" id="node13" href="$d2/d3e/class_level1.html#ac56e75129bb2946c38cfcf43608f3f05" title="Level1.goNextLevel" alt="" coords="936,107,1083,133"/>
+<area shape="rect" id="node7" href="$d2/db8/class_menu.html#a53c8b072d5ec777994fed9ee76c98561" title="Menu.handle" alt="" coords="1131,56,1235,83"/>
+<area shape="rect" id="node8" href="$d2/db8/class_menu.html#aff7a7627619921545f94547ab6135007" title="Menu.addButton" alt="" coords="1283,56,1411,83"/>
+<area shape="rect" id="node9" href="$dd/d7f/class_game_win.html#a0ebbfe299d7456f57ae3dbf3817b7f8d" title="GameWin.addAllButtons" alt="" coords="1463,5,1639,32"/>
+<area shape="rect" id="node10" href="$d5/db1/class_game_over.html#abb505ac8c26999beff755f4c299370da" title="GameOver.addAllButtons" alt="" coords="1459,56,1642,83"/>
+<area shape="rect" id="node11" href="$d2/db8/class_menu.html#a461e62e606af2391013ce3aaf92a8cc7" title="Menu.addAllButtons" alt="" coords="1475,107,1626,133"/>
+<area shape="rect" id="node12" href="$d2/db8/class_menu.html#a3c99ad09e9f2f975c1a0d0597642651a" title="Menu.init" alt="" coords="1691,107,1771,133"/>
+</map>

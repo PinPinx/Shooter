@@ -1,0 +1,30 @@
+<map id="Menu.addButton" name="Menu.addButton">
+<area shape="rect" id="node2" href="$d2/db8/class_menu.html#a53c8b072d5ec777994fed9ee76c98561" title="Menu.handle" alt="" coords="181,436,285,463"/>
+<area shape="rect" id="node3" href="$d2/db8/class_menu.html#ab6296880308728ced459f772430d025b" title="Menu.createGame" alt="" coords="333,436,475,463"/>
+<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#a0871325d07c0614d5f1f2df7df13b703" title="Level1.start" alt="" coords="523,411,621,437"/>
+<area shape="rect" id="node14" href="$d6/d21/class_screen.html#a5d40342bbe33c27c9e0e24bd8709d1f6" title="Screen.showAndAnim" alt="" coords="1318,461,1479,488"/>
+<area shape="rect" id="node5" href="$d2/d3e/class_level1.html#a324da1e22a7a87fa4bb1859b5774bdba" title="Level1.updateFrame" alt="" coords="669,233,821,260"/>
+<area shape="rect" id="node6" href="$d2/d3e/class_level1.html#a78a7fb5633734b1815af8db43db23a41" title="Level1.updateSprites" alt="" coords="869,233,1027,260"/>
+<area shape="rect" id="node29" href="$d2/d3e/class_level1.html#a5f552e875916d0cf7a74896401584b2a" title="Level1.updateTimer" alt="" coords="874,183,1022,209"/>
+<area shape="rect" id="node7" href="$d2/d3e/class_level1.html#a5e6976ef755d0e678034870e374ee4ca" title="Level1.goGameOver" alt="" coords="1096,309,1248,336"/>
+<area shape="rect" id="node12" href="$d2/d3e/class_level1.html#ac56e75129bb2946c38cfcf43608f3f05" title="Level1.goNextLevel" alt="" coords="1099,411,1245,437"/>
+<area shape="rect" id="node16" href="$dd/d7a/class_enemy.html#a9b6840dcc6b8165268e957fc43d95b06" title="Enemy.makePoop" alt="" coords="1104,259,1240,285"/>
+<area shape="rect" id="node18" href="$d8/d53/class_player.html#a1b7a0a6c68deb202a672d42e205d5a21" title="Player.moveSprite" alt="" coords="1103,157,1241,184"/>
+<area shape="rect" id="node20" href="$dd/d7a/class_enemy.html#ab653212b50d9e64ba497ae18696d3678" title="Enemy.moveSprite" alt="" coords="1101,56,1243,83"/>
+<area shape="rect" id="node22" href="$d2/d3e/class_level1.html#a5995ba731849ced54b8f97fcc93ce4d9" title="Level1.removeFromScreen" alt="" coords="1075,360,1269,387"/>
+<area shape="rect" id="node23" href="$d2/d3e/class_level1.html#aa75f107bf925594da75a1d82cf64044d" title="Level1.returnCollisions" alt="" coords="1089,5,1255,32"/>
+<area shape="rect" id="node27" href="$d7/da7/class_character.html#aad64a9dc8ceea8b806cf2e1908cd0df8" title="Character.setFull" alt="" coords="1108,107,1236,133"/>
+<area shape="rect" id="node28" href="$d7/da7/class_character.html#ac0b4f4ace84c8e5aa60f05515806015d" title="Character.setHP" alt="" coords="1109,208,1235,235"/>
+<area shape="rect" id="node8" href="$d2/d3e/class_level1.html#ac4098d447b9841cabec6be3bb719bd26" title="Level1.clearElements" alt="" coords="1319,309,1478,336"/>
+<area shape="rect" id="node9" href="$d7/da7/class_character.html#a4dc23a76b34bcbb84abba1b116847268" title="Character.getHP" alt="" coords="1335,360,1462,387"/>
+<area shape="rect" id="node10" href="$d6/d21/class_screen.html#a5d9534b81b96cfc0a00009dea6be6c09" title="Screen.showScreen" alt="" coords="1547,335,1695,361"/>
+<area shape="rect" id="node11" href="$d6/d21/class_screen.html#ac7ca0a382b3177bbea4e2a4e7c0f442e" title="Screen.init" alt="" coords="1801,335,1892,361"/>
+<area shape="rect" id="node13" href="$dd/d7a/class_enemy.html#a0b00e167bc151db783054dddb2f9b509" title="Enemy.makeAngry" alt="" coords="1328,411,1469,437"/>
+<area shape="rect" id="node15" href="$d6/d21/class_screen.html#a601576a0d49770789b2eb08328f09c53" title="Screen.startAnim" alt="" coords="1554,461,1689,488"/>
+<area shape="rect" id="node17" href="$d7/dbf/class_sprite.html#accdf1c21264c6ff648ece508cf176bfb" title="Sprite.setVelocity" alt="" coords="1332,157,1465,184"/>
+<area shape="rect" id="node19" href="$d7/dbf/class_sprite.html#ab8f846b7ba77ae72ad09f48da22ceea7" title="Sprite.moveSprite" alt="" coords="1329,107,1468,133"/>
+<area shape="rect" id="node21" href="$d7/dbf/class_sprite.html#a4dd4a643703de09c632a0e7d70a570e7" title="Sprite.getVelocity" alt="" coords="1331,56,1466,83"/>
+<area shape="rect" id="node24" href="$d7/da7/class_character.html#aa2149c166e797ae0ded67d9f768ac7f3" title="Character.updateAll" alt="" coords="1325,5,1473,32"/>
+<area shape="rect" id="node25" href="$d7/da7/class_character.html#ade25acccb27ac9aeb2752b2df29d075f" title="Character.collisionUpdate" alt="" coords="1529,5,1714,32"/>
+<area shape="rect" id="node26" href="$d7/da7/class_character.html#ad223fcb54929116326bf8816d43f5173" title="Character.checkCollide" alt="" coords="1763,5,1930,32"/>
+</map>

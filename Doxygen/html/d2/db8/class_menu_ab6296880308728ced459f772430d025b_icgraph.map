@@ -1,0 +1,8 @@
+<map id="Menu.createGame" name="Menu.createGame">
+<area shape="rect" id="node2" href="$d2/db8/class_menu.html#a53c8b072d5ec777994fed9ee76c98561" title="Menu.handle" alt="" coords="195,56,299,83"/>
+<area shape="rect" id="node3" href="$d2/db8/class_menu.html#aff7a7627619921545f94547ab6135007" title="Menu.addButton" alt="" coords="347,56,475,83"/>
+<area shape="rect" id="node4" href="$dd/d7f/class_game_win.html#a0ebbfe299d7456f57ae3dbf3817b7f8d" title="GameWin.addAllButtons" alt="" coords="527,5,703,32"/>
+<area shape="rect" id="node5" href="$d5/db1/class_game_over.html#abb505ac8c26999beff755f4c299370da" title="GameOver.addAllButtons" alt="" coords="523,56,706,83"/>
+<area shape="rect" id="node6" href="$d2/db8/class_menu.html#a461e62e606af2391013ce3aaf92a8cc7" title="Menu.addAllButtons" alt="" coords="539,107,690,133"/>
+<area shape="rect" id="node7" href="$d2/db8/class_menu.html#a3c99ad09e9f2f975c1a0d0597642651a" title="Menu.init" alt="" coords="755,107,835,133"/>
+</map>

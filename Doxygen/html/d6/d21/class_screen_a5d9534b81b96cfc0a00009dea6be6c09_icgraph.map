@@ -1,0 +1,17 @@
+<map id="Screen.showScreen" name="Screen.showScreen">
+<area shape="rect" id="node2" href="$d2/d3e/class_level1.html#a5e6976ef755d0e678034870e374ee4ca" title="Level1.goGameOver" alt="" coords="203,30,355,56"/>
+<area shape="rect" id="node14" href="$d0/dc8/class_level2.html#a5f48ec87e567f2e4994668ba29ac4266" title="Level2.goNextLevel" alt="" coords="205,131,352,158"/>
+<area shape="rect" id="node15" href="$d6/d21/class_screen.html#a5d40342bbe33c27c9e0e24bd8709d1f6" title="Screen.showAndAnim" alt="" coords="809,80,970,107"/>
+<area shape="rect" id="node16" href="$d0/d4b/class_main.html#a7595d13c514a02c35aca322dd91d2063" title="Main.start" alt="" coords="235,182,322,208"/>
+<area shape="rect" id="node3" href="$d2/d3e/class_level1.html#a78a7fb5633734b1815af8db43db23a41" title="Level1.updateSprites" alt="" coords="403,30,560,56"/>
+<area shape="rect" id="node4" href="$d2/d3e/class_level1.html#a324da1e22a7a87fa4bb1859b5774bdba" title="Level1.updateFrame" alt="" coords="608,30,760,56"/>
+<area shape="rect" id="node5" href="$d2/d3e/class_level1.html#a0871325d07c0614d5f1f2df7df13b703" title="Level1.start" alt="" coords="841,30,938,56"/>
+<area shape="rect" id="node6" href="$d2/db8/class_menu.html#ab6296880308728ced459f772430d025b" title="Menu.createGame" alt="" coords="1021,80,1163,107"/>
+<area shape="rect" id="node13" href="$d2/d3e/class_level1.html#ac56e75129bb2946c38cfcf43608f3f05" title="Level1.goNextLevel" alt="" coords="1019,30,1165,56"/>
+<area shape="rect" id="node7" href="$d2/db8/class_menu.html#a53c8b072d5ec777994fed9ee76c98561" title="Menu.handle" alt="" coords="1213,80,1317,107"/>
+<area shape="rect" id="node8" href="$d2/db8/class_menu.html#aff7a7627619921545f94547ab6135007" title="Menu.addButton" alt="" coords="1365,80,1493,107"/>
+<area shape="rect" id="node9" href="$dd/d7f/class_game_win.html#a0ebbfe299d7456f57ae3dbf3817b7f8d" title="GameWin.addAllButtons" alt="" coords="1545,30,1721,56"/>
+<area shape="rect" id="node10" href="$d5/db1/class_game_over.html#abb505ac8c26999beff755f4c299370da" title="GameOver.addAllButtons" alt="" coords="1542,80,1725,107"/>
+<area shape="rect" id="node11" href="$d2/db8/class_menu.html#a461e62e606af2391013ce3aaf92a8cc7" title="Menu.addAllButtons" alt="" coords="1558,131,1709,158"/>
+<area shape="rect" id="node12" href="$d2/db8/class_menu.html#a3c99ad09e9f2f975c1a0d0597642651a" title="Menu.init" alt="" coords="1773,131,1853,158"/>
+</map>
