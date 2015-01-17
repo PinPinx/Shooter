@@ -24,7 +24,7 @@ class Level1 extends Screen{
 	private static final int PLAYER_HP = 50;
 	private static final int ENEMY_HP = 100;
 	private static final int ENEMY_V=6;
-	private static final int START_TIME = 60;
+	private static final int START_TIME = 30;
 	private static final int SHOT_LIMIT = 50;
 	private static final int FRAMES_PER_SEC = 60;
 	private static final int POOP_FREQUENCY = 200;
