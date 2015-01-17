@@ -3,9 +3,10 @@ Date: 1/9/15
 Genre: Top Down Shooter
 Game Name: Pain in the Butt
 Goal: Given a limited amount of time, shoot the butt moving laterally at the
-top of the screen using a hand that moves laterally at the bottom of the screen
-. The butt dies once it has been shot enough times by hands that you can shoot.
+top of the screen using a hand that moves laterally at the bottom of the screen.
+The butt dies once it has been shot enough times by hands that you can shoot.
 However, you die if you have been shot enough times by poop that shoots at you.
+Furthermore, you die if you run out of ammo, so save your shots!
 Kill the butt before it kills you.
 Basic mechanics: A to move left, D to move right, click to shoot.
 How hard level differs: In easy mode, the poop shoots straight down. In hard
