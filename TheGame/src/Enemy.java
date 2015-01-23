@@ -11,7 +11,7 @@ public class Enemy extends Character{
 		super(X, Y, points, "images/But.gif", Root);
 		setVelocity(6,0);
 		setBarLocation(500, 130);
-		HPBar.setStyle("-fx-accent: red;");
+		getHPBar().setStyle("-fx-accent: red;");
 		myRoot=Root;
 	}
 	

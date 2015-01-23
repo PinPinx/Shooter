@@ -12,7 +12,7 @@ public class Player extends Character{
 	public Player(double X, double Y, double points, Group Root){
 		super(X, Y, points, "images/hand.png", Root);
 		setBarLocation(500, 150);
-		HPBar.setStyle("-fx-accent: green;");
+		getHPBar().setStyle("-fx-accent: green;");
 		myRoot=Root;
 	}
 	

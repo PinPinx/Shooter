@@ -1,3 +1,6 @@
+// This entire file is part of my masterpiece.
+// Danny Oh
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
